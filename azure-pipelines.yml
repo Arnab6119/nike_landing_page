@@ -6,11 +6,12 @@
 trigger:
 - main
 
-pool: default
+
 stages:
   - stage: Build
     jobs:
       - job: Build
+        pool: default
         steps:
         - task: Npm@1
           inputs:
