@@ -6,7 +6,7 @@
 trigger:
 - main
 
-pool:default
+pool: default
 stages:
   - stage: Build
     jobs:
@@ -20,4 +20,9 @@ stages:
           inputs:
             command: 'custom'
             customCommand: 'run build'
-        
+        - task: Npm@1
+          inputs:
+            command: 'publish'
+            workingDir: './dist'
+            publishRegistry: 'useFeed'
+            publishFeed: 'b31e7855-31ce-46bc-8fc5-f7e730e923d8/dce593ee-ee82-4791-b674-ad0518e01834'
